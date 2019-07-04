@@ -1,0 +1,62 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista de cupos</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table class="table table-responsive striped">
+      <thead>
+        <tr>
+          <th>Placa</th>
+          <th>Tipo vehiculo</th>
+          <th>Cilindraje</th>
+          <th>Fecha entrada</th>
+          <th>Fecha salida</th>
+          <th>Precio</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listaVehiculo; let i = index">
+          <td>
+            {{item.placa}}
+          </td>
+          <td style="text-align: center" [matTooltip]="item.tipoVehiculo" matTooltipPosition="before">
+            <mat-icon color="primary">
+              {{iconoTipoVEhiculo(item)}}
+            </mat-icon>
+          </td>
+          <td>{{item.cilindraje || 0 }} cc</td>
+          <td>
+            {{item.horaEntrada | date: 'dd/MM/yyyy -  HH:mm'}}
+          </td>
+          <td>
+            {{item.horaSalida | date: 'dd/MM/yyyy -  HH:mm'}}
+          </td>
+          <td>
+            <b *ngIf="!validarSalidaVehiculo(item)">
+              {{item.valor | currency:'COP $'}}
+            </b>
+          </td>
+          <td>
+            <div *ngIf="validarSalidaVehiculo(item)">
+              <button mat-icon-button color="primary" [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="salidaVehiculo(item)">
+                  <mat-icon color="primary">exit_to_app</mat-icon>
+                  Salida del vehiculo
+                </button>
+              </mat-menu>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr *ngIf="noHayRegistro()">
+          <td colspan="5">No hay registros por el momento</td>
+        </tr>
+      </tfoot>
+    </table>
+  </mat-card-content>
+</mat-card>

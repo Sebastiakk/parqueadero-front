@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Ingresar vehiculo</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <mat-form-field class="col s12 m4" appearance="outline">
+        <mat-label>Tipo de vehiculo</mat-label>
+        <mat-select required [(ngModel)]="form.tipoVehiculo">
+          <mat-option *ngFor="let item of tipoVehiculo" [value]="item.id">
+            {{item.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col s12 m4" appearance="outline">
+        <mat-label>Placa del vechiculo</mat-label>
+        <input required matInput [(ngModel)]="form.placa">
+      </mat-form-field>
+      <mat-form-field class="col s12 m4" appearance="outline" *ngIf="esMoto()">
+        <mat-label>Cilindraje de la moto</mat-label>
+        <input matInput required type="number" step="10" [(ngModel)]="form.cilindraje">
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button color="primary" (click)="guardarVehiculo()">GUARDAR</button>
+  </mat-card-actions>
+</mat-card>
