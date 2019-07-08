@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ENVIROMENT } from 'src/app/environment/environment';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +29,9 @@ export class ModelHttpService {
 
   private url(path): string {
     if (path === null) {
-      return ENVIROMENT.API;
+      return environment.API;
     } else {
-      return ENVIROMENT.API + '/' + path;
+      return environment.API + '/' + path;
     }
   }
 }
