@@ -1,0 +1,9 @@
+{
+  "/parqueadero": {
+    "target": "http://localhost:1103",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
