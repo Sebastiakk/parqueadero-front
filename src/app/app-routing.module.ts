@@ -1,21 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListarVehiculosComponent } from './component/listar-vehiculos/listar-vehiculos.component';
-import { CrearVehiculoComponent } from './component/crear-vehiculo/crear-vehiculo.component';
 
+const vistaPrincipal: string = '🏠';
 
-const vistaPrincipal: string = 'listar';
 const routes: Routes = [
-
   {
-    path: vistaPrincipal, component: ListarVehiculosComponent,
-  },
-  {
-    path: 'crear', component: CrearVehiculoComponent,
+    path: vistaPrincipal,
+    loadChildren: () => import('./component/barra/barra.module').then(module => module.BarraModule),
   },
   {
     path: '**',
-    redirectTo: vistaPrincipal
+    redirectTo: vistaPrincipal,
+    pathMatch: 'full'
   }
 ];
 
