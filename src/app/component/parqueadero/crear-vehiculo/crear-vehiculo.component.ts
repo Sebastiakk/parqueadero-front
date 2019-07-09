@@ -46,7 +46,7 @@ export class CrearVehiculoComponent implements OnInit {
   public guardarVehiculo(): void {
     if (!this.validarForm()) {
       this.servicio.crearVehiculo(this.form).subscribe((res: any) => {
-        this.router.navigate(['/listar']);
+        this.router.navigate(['./listar']);
         this.form = this.setFormulario();
       }, err => {
         this.toastInfo(err.error.message);
