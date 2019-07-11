@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehiculo } from 'src/app/interface/vehiculo';
-import { TipoVehiculo } from 'src/app/interface/tipo-vehiculo';
+import { Vehiculo } from 'src/app/component/parqueadero/interface/vehiculo';
+import { TipoVehiculo } from 'src/app/component/parqueadero/interface/tipo-vehiculo';
 import { Router } from '@angular/router'
 import { ParqueaderoService } from 'src/app/service/parqueadero/parqueadero.service';
 import { MatSnackBar } from '@angular/material/snack-bar';

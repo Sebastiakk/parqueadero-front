@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ModelHttpService } from '../model-http/model-http.service';
-import { Vehiculo } from 'src/app/interface/vehiculo';
+import { Vehiculo } from 'src/app/component/parqueadero/interface/vehiculo';
 
 @Injectable({
   providedIn: 'root'
